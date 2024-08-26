@@ -1,0 +1,174 @@
+#Register
+POST http://localhost:8080/v1/auth/signup
+Content-Type: application/json
+Cookie: key=first-value
+
+{
+  "email": "math@gmail.io",
+  "password": "123456",
+  "firstName": "Math",
+  "lastName": "Boss",
+  "role": "USER"
+}
+
+###
+POST http://localhost:8080/v1/auth/verify
+Content-Type: application/json
+Cookie: key=first-value
+
+{
+  "email": "bersyteinfo@gmail.com",
+  "verificationCode": "165783"
+}
+
+###
+POST http://localhost:8080/v1/auth/refresh-token
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJiZXJzeXRlaW5mb0BnbWFpbC5jb20iLCJpYXQiOjE3MjQyNjg5NDIsImV4cCI6MTcyNDg3Mzc0Mn0.UrqXJqiKaNGDS1bArEmJtAR7rJqc8bbGYfzBvuI1XGUBWNFYHUbXmmZbmj-lV6m7
+
+
+###
+#login
+POST http://localhost:8080/v1/auth/login
+Content-Type: application/json
+Cookie: key=first-value
+
+{
+  "email": "bersyteinfo@gmail.com",
+  "password": "123456"
+}
+
+###
+#Get current user
+GET http://localhost:8080/v1/users/current-user
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJiZXJzeXRlaW5mb0BnbWFpbC5jb20iLCJpYXQiOjE3MjQyNzYzNDQsImV4cCI6MTcyNDI3NzI0NH0.tG3i2srTlMlNNEMsZeXuq84hjcO1qsfJ98kOnyMeUK9sq5nGH7_l_1du4diS6vwg
+
+
+###
+GET http://localhost:8080/v1/events?page=0&size=50
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJiZXJzeXRlaW5mb0BnbWFpbC5jb20iLCJpYXQiOjE3MjQyNzYzNDQsImV4cCI6MTcyNDI3NzI0NH0.tG3i2srTlMlNNEMsZeXuq84hjcO1qsfJ98kOnyMeUK9sq5nGH7_l_1du4diS6vwg
+
+
+###
+#Get by id
+GET http://localhost:8080/v1/events/37
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5pbyIsImlhdCI6MTcyNDE5Mjg4MywiZXhwIjoxNzI0MTk2NDgzfQ.dzvhyLHNqN-nKK8_qEpQ82QJXo04BjMQahjUuiXC57kPTohRYeBqM8MviYKm144U
+
+
+###
+#Create event
+POST http://localhost:8080/v1/events
+Content-Type: application/json
+Cookie: key=first-value
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJiZXJzeXRlaW5mb0BnbWFpbC5jb20iLCJpYXQiOjE3MjQyMDEyMDQsImV4cCI6MTcyNDIwNDgwNH0.VhruXbtaCXu3TshKZDZvKfdc32hqd8KPQXTnocG55l-3j5gwe0JoB9W-ONWPLanx
+
+{
+  "title": "Company Hall",
+  "description": "Quarterly town hall meeting for all employees",
+  "location": "Main Auditorium",
+  "date": 1753754984000
+}
+
+###
+#Update existing event
+#PUT http://localhost:8080/v1/events/37
+PUT http://localhost:8080/v1/events/1
+Content-Type: application/json
+Cookie: key=first-value
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJiZXJzeXRlaW5mb0BnbWFpbC5jb20iLCJpYXQiOjE3MjQyMDEyMDQsImV4cCI6MTcyNDIwNDgwNH0.VhruXbtaCXu3TshKZDZvKfdc32hqd8KPQXTnocG55l-3j5gwe0JoB9W-ONWPLanx
+
+{
+  "title": "Client Demo",
+  "description": "Demo of prototype to Client B",
+  "location": "Client B's Office",
+  "date": 1738754984000
+}
+
+###
+DELETE http://localhost:8080/v1/events/admin/34
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5pbyIsImlhdCI6MTcyMzgwODc4NSwiZXhwIjoxNzIzODE1OTg1fQ.pa1kLOAB4YVRaYMUUZDtxVBtKzNkSKE2H9PUFSwgeOQ
+
+###
+#Search Events by title
+GET http://localhost:8080/v1/events/filter?title=training&page=0&size=10
+
+###
+#Search by date
+GET http://localhost:8080/v1/events/date?eventDate=1673370000000
+
+###
+#Search Events by location
+GET http://localhost:8080/v1/events/filter?location=room&page=0&size=10
+
+###
+#Search Events by title and location
+GET http://localhost:8080/v1/events/filter?title=training&location=room&page=0&size=10
+
+###
+#Filter Events by Category
+GET http://localhost:8080/v1/events?category=music&page=0&size=10
+
+###
+#Upcoming Events:
+GET http://localhost:8080/v1/events/upcoming?page=0&size=10
+
+###
+#Get all users
+GET http://localhost:8080/v1/users?page=0&size=10
+
+###
+#register
+POST http://localhost:8080/v1/auth/register
+
+###
+###
+#login
+POST http://localhost:8080/v1/auth/login
+Content-Type: application/json
+Cookie: key=first-value
+
+{
+  "email": "admin@gmail.io",
+  "password": "123456"
+}
+
+###
+#event-registration
+POST http://localhost:8080/v1/event-registration/39
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb3NAZ21haWwuaW8iLCJpYXQiOjE3MjQwMjYwNDcsImV4cCI6MTcyNDAzMzI0N30.rsE91-QhLchD9LFahnTfqO3gGbI7qaFwUhwfiFM_XQw
+
+
+###
+#cancel event-registration
+POST http://localhost:8080/v1/event-registration/cancel/39
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb3NAZ21haWwuaW8iLCJpYXQiOjE3MjQwMjYwNDcsImV4cCI6MTcyNDAzMzI0N30.rsE91-QhLchD9LFahnTfqO3gGbI7qaFwUhwfiFM_XQw
+
+
+###
+POST http://localhost:8080/v1/event-registration/remove-participant?participantId=4&eventId=39
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb3NAZ21haWwuaW8iLCJpYXQiOjE3MjM5Nzg0MTAsImV4cCI6MTcyMzk4NTYxMH0.LaxVQyZsNzBJgqZVK9uy8b8LdZFjHx6CaafXVt956vQ
+
+
+
+###
+POST http://localhost:8080/v1/event-registration/add-participant?participantId=1&eventId=36
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5pbyIsImlhdCI6MTcyNDE5NjAyNywiZXhwIjoxNzI0MTk5NjI3fQ.9lLWkEmYyUUNo1edPEY_G63JyMlu-WfO0K7dKdGt8rKGn0sHZG9WUvw_XwIncEsW
+
+
+###
+#Admin add participant
+POST http://localhost:8080/api/admin/event/add-participant?participantId=1&eventId=39
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5pbyIsImlhdCI6MTcyNDA1ODQ4NSwiZXhwIjoxNzI0MDY1Njg1fQ.QcKxDjxx633f2YJS68tO305odBi9KU-0nsPdLM26Zwk
+
+###
+#Admin remove participant
+POST http://localhost:8080/api/admin/event/remove-participant?participantId=1&eventId=39
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5pbyIsImlhdCI6MTcyNDA1ODQ4NSwiZXhwIjoxNzI0MDY1Njg1fQ.QcKxDjxx633f2YJS68tO305odBi9KU-0nsPdLM26Zwk
+
+
+
+
+
+
+
+
+
